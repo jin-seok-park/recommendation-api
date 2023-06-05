@@ -34,7 +34,7 @@
 ```
     RecommendationTest.class
     ProductServiceTest.class
-    RecommendationServiceTest 
+    RecommendationServiceTest.class
 ```
 ---       
 
