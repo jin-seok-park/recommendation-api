@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.Instant;
 
@@ -14,6 +15,7 @@ import java.time.Instant;
 @Builder
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@EntityListeners(AuditingEntityListener.class)
 public class Product {
 
     @Id
@@ -44,7 +46,6 @@ public class Product {
         this.saleStatus = SaleStatusEnum.getSaleStatusEnum(productRequest.getSaleStatus());
         this.brandCd = productRequest.getBrandCd();
         this.priority = productRequest.getPriority();
-        this.updateDate = Instant.now();
         this.updateUserNo = productRequest.getRequestUserNo();
     }
 

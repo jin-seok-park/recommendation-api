@@ -14,7 +14,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.time.Instant;
 
 @Slf4j
 @Service
@@ -78,13 +77,10 @@ public class BrandServiceImpl implements BrandService {
     }
 
     private Brand createBrand(BrandRequest brandRequest){
-        Instant now = Instant.now();
         return Brand.builder()
                 .brandCd(brandRequest.getBrandCd())
                 .brandName(brandRequest.getBrandName())
                 .totalPrice(Integer.MAX_VALUE)
-                .createDate(now)
-                .updateDate(now)
                 .build();
     }
 

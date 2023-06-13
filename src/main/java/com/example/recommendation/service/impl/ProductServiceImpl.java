@@ -13,7 +13,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.time.Instant;
 
 @Slf4j
 @Service
@@ -133,7 +132,6 @@ public class ProductServiceImpl implements ProductService {
     }
 
     private Product createProduct(ProductRequest productRequest){
-        Instant now = Instant.now();
         return Product.builder()
                 .categoryCd(productRequest.getCategoryCd())
                 .name(productRequest.getName())
@@ -142,9 +140,7 @@ public class ProductServiceImpl implements ProductService {
                 .saleStatus(SaleStatusEnum.SALE)
                 .brandCd(productRequest.getBrandCd())
                 .priority(createDefaultPriority(productRequest.getPriority()))
-                .createDate(now)
                 .createUserNo(productRequest.getRequestUserNo())
-                .updateDate(now)
                 .updateUserNo(productRequest.getRequestUserNo())
                 .build();
 
